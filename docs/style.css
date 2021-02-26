@@ -17,3 +17,11 @@ h1 {
 .callouts > * {
     margin:10px 0;
 }
+#download {
+    background-color:#00BFA5;
+    padding:10px 30px;
+    border:2px solid white;
+    color:white;
+    margin:10px;
+    border-radius:10px;
+}
