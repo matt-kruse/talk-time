@@ -110,6 +110,8 @@ function createGroupTable() {
       <td><div contenteditable="true" title="Click to edit label" class="talk-time-group-label talk-time-group-selector-${group}">${group.toUpperCase()}</div></td>
       <td id="talk-time-group-total-${group}" class="talk-time-group-total talk-time-time"></td>
       <td id="talk-time-group-pct-${group}" class="talk-time-group-pct talk-time-pct"></td>
+      <td>Avg/person: </td>
+      <td id="talk-time-group-avg-${group}" class="talk-time-group-avg talk-time-avg"></td>
     </tr>`;
   });
   table += `</tbody></table>`;
@@ -224,18 +226,21 @@ function updateGroupTotals() {
     let record = groups[group];
     let active = false;
     record.total = 0;
+    record.count = 0;
     for (p in record.participants) {
       if (!record.participants.hasOwnProperty(p)) { continue; }
       if (record.participants[p]) {
         // User is in group
         active = true;
         record.total += data[p].total;
+        record.count++;
       }
     }
     if (active) {
       any_active = true;
       document.querySelector(`#talk-time-group-total-${group}`).textContent = getFormattedTotalTime(record);
       document.querySelector(`#talk-time-group-pct-${group}`).textContent = getFormattedTotalPercent(record);
+      document.querySelector(`#talk-time-group-avg-${group}`).textContent = formatTime(record.total/1000/record.count);
     }
     document.querySelector(`#talk-time-group-row-${group}`).style.display = active ? "table-row" : "none";
   }
@@ -342,11 +347,20 @@ setInterval(pulse,config.pulse_timeslice);
 // Watch for the talk icon to animate
 let observer = new MutationObserver(function(mutations) {
   try {
+    // console.log("MUTATION OBSERVER");
+    // console.log(mutations);
+
     mutations.forEach(function(mutation) {
       let el = mutation.target;
 
+      // Only act if there really was a change
+      // I don't think I should have to do this, but here we are
+      if (mutation.oldValue===el.className) { return; }
+
       // The element must be visible for it to count. When muted, the talk bars become hidden
-      if ("none"===getComputedStyle(el).getPropertyValue('display')) {
+      let display = getComputedStyle(el).getPropertyValue('display');
+      //console.log(display,el);
+      if ("none"===display) {
         return;
       }
 
