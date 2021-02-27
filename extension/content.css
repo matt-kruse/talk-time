@@ -52,13 +52,69 @@
 #talk-time-container.collapsed {
     opacity: .5;
     width:auto;
+    min-width:0;
 }
-#talk-time-container.collapsed > * {
-    display:none;
+#talk-time-container.collapsed > *, #talk-time-container.collapsed .talk-time-options-gear {
+    display:none !important;
 }
 #talk-time-container.collapsed > .talk-time-top {
-    display:block;
+    display:block !important;
     padding:0 10px;
+}
+
+/* Options */
+
+.talk-time-options-gear {
+    fill:white;
+    float:right;
+    height:16px;
+    width:16px;
+    cursor:pointer;
+}
+.talk-time-options-content {
+    display:none;
+    min-height:200px;
+    max-height:50vh;
+    overflow-y:auto;
+    background-color:white;
+    padding:5px;
+}
+#talk-time-container.talk-time-options .talk-time-options-content {
+    display:block;
+}
+#talk-time-container.talk-time-options .talk-time-header, #talk-time-container.talk-time-options .talk-time-body {
+    display:none;
+}
+.talk-time-options-close {
+    cursor:pointer;
+    background-color:#42776C;
+    color:white;
+    margin:10px;
+    border:1px solid black;
+    border-radius:4px;
+    padding:5px 20px;
+}
+
+/* Hide/Show Groups */
+#talk-time-container .talk-time-hide-groups, #talk-time-container .talk-time-show-groups {
+    float:right;
+    display:inline-block;
+    cursor:pointer;
+}
+#talk-time-container .talk-time-hide-groups {
+    display:none;
+}
+#talk-time-container.show_groups .talk-time-hide-groups {
+    display:inline-block;
+}
+#talk-time-container.show_groups .talk-time-show-groups {
+    display:none;
+}
+.talk-time-group-selector-container {
+    display:none;
+}
+#talk-time-container.show_groups .talk-time-group-selector-container {
+    display:block;
 }
 
 .talk-time-top {
@@ -109,45 +165,32 @@ td.talk-time-total, td.talk-time-pct {
 
 .talk-time-group-selector,.talk-time-group-label {
     display:inline-block;
-    height:16px;
-    border-radius:8px;
+    height:14px;
+    border-radius:7px;
     text-align:center;
-    line-height:16px;
+    line-height:14px;
     cursor:pointer;
 }
 .talk-time-group-label {
     display:inline-block;
     min-width:24px;
     width:auto;
-    padding:0 5px;
+    padding:0 4px;
 }
 .talk-time-group-selector {
     width:24px;
-    opacity:.2;
     cursor:pointer;
+    background-color:#eee;
+    border:1px solid #ddd;
+    color:#999;
 }
-.talk-time-group-selector.selected {
-    opacity:1;
-    border:1px inset #666;
-}
-
-.talk-time-group-selector-a {
-    background-color:red;
-    color:white;
-}
-.talk-time-group-selector-b {
-    background-color:green;
-    color:white;
-}
-.talk-time-group-selector-c {
-    background-color:blue;
-    color:white;
-}
-.talk-time-group-selector-d {
-    background-color:black;
+.talk-time-group-selector.selected, .talk-time-group-label {
+    background-color:#666;
+    border:1px solid #333;
     color:white;
 }
 
 .talk-time-group-table {
     display:none;
 }
+

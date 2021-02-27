@@ -4,7 +4,7 @@
   "manifest_version": 2,
   "name": "Talk Time for Google Meet",
   "author": "Matt Kruse",
-  "version": "1.0",
+  "version": "1.1",
   "homepage_url": "https://EveryoneShouldHaveAVoice.com.com/",
   "icons": {
     "16": "icon-16.png",
