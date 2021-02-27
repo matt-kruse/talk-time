@@ -433,8 +433,8 @@ function attach() {
     }
   }
   else {
-    console.log( config.participants_selector );
-    console.log( document.querySelector(config.participants_selector) );
+    //console.log( config.participants_selector );
+    //console.log( document.querySelector(config.participants_selector) );
 
     participants_list = document.querySelector(config.participants_selector);
     if (participants_list) {
