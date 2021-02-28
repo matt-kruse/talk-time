@@ -20,9 +20,28 @@ body {
 }
 #download {
     background-color:#00BFA5;
-    padding:10px 30px;
-    border:2px solid white;
+    padding:15px 40px;
+    border:2px solid #42776c;
     color:white;
     margin:10px;
-    border-radius:10px;
+    border-radius:15px;
+    font-size:125%;
+    font-weight:bold;
+}
+ul {
+    list-style-type:none;
+}
+li:before {
+    content:"\2713";
+    font-weight:bold;
+    color:#42776c;
+    border:2px solid #42776c;
+    display:inline-block;
+    height:1.2em;
+    width:1.2em;
+    border-radius:.6em;
+    line-height:1em;
+    padding:0 0 0 .1em;
+    font-size:.9em;
+    margin-right:10px;
 }
