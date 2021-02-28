@@ -27,6 +27,8 @@ body {
     border-radius:15px;
     font-size:125%;
     font-weight:bold;
+    max-width:80%;
+    display:inline-block;
 }
 ul {
     list-style-type:none;
