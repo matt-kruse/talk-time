@@ -30,6 +30,42 @@ let dom_container = null;
 let dom_table = null;
 let dom_total = null;
 
+// Test data for screenshots
+// update_display_required = true;
+// data = {
+//   "x1": {
+//     id:"x1",
+//     name:"Joe Smith",
+//     total: 273000,
+//     talking:false,
+//     update_required:true,
+//     visible:true
+//   },
+//   "x2": {
+//     id:"x2",
+//     name:"Cheryl Johnson",
+//     total: 1076000,
+//     talking:true,
+//     update_required:true,
+//     visible:true
+//   },
+//   "x3": {
+//     id:"x3",
+//     name:"Matt Clark",
+//     total: 87000,
+//     talking:false,
+//     update_required:true,
+//     visible:true
+//   }
+// };
+// totaltalktime = data.x1.total + data.x2.total + data.x3.total;
+// groups = {
+//   "a":{ "participants":{"x1":true, "x2":true} },
+//   "b":{ "participants":{} },
+//   "c":{ "participants":{"x1":true} },
+//   "d":{ "participants":{} }
+// };
+
 // ==================================================================
 // UTIL
 // ==================================================================

@@ -147,7 +147,7 @@
     border:none;
     white-space:nowrap;
 }
-td.talk-time-total, td.talk-time-pct {
+td.talk-time-time, td.talk-time-pct {
     padding:0 2px;
     text-align:right;
 }
