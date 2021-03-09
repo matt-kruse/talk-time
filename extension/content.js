@@ -262,15 +262,16 @@ function notTalking(record) {
   }
 }
 function updateParticipant(record) {
-  if (record && record.update_required && record.total>=config.min_talk_time_to_show) {
-    if (!record.row) {
-      record.row = createParticipantRow(record);
-      dom_table.appendChild(record.row);
-    }
-    record.time_display.textContent = getFormattedTotalTime(record);
-    record.pct_display.textContent = getFormattedTotalPercent(record);
-    record.update_required = false;
+  if (!record) { return; }
+  if (!record.row) {
+    record.row = createParticipantRow(record);
+    dom_table.appendChild(record.row);
   }
+  if (record && record.update_required && record.total>=config.min_talk_time_to_show) {
+    record.time_display.textContent = getFormattedTotalTime(record);
+  }
+  record.pct_display.textContent = getFormattedTotalPercent(record);
+  record.update_required = false;
 }
 function updateGroupTotals() {
   let group,p, any_active = false;
