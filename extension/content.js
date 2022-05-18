@@ -536,13 +536,5 @@ chrome.storage.local.get(['options'],function(storage) {
     addEventListener('DOMContentLoaded',welcome);
   }
 
-  // Fetch an updated config from the server
-  // fetch('https://EveryoneShouldHaveAVoice.com/config.json').json().then((json)=>{
-  //   let k;
-  //   for (k in json) {
-  //     config[k] = json[k];
-  //   }
-  // });
-
   setInterval(attach,1000);
 });
