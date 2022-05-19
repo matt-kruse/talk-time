@@ -1,10 +1,10 @@
 {
 
   "description": "Track and display the talk time and percent of talking time for each participant in a Google Meet",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Talk Time for Google Meet",
   "author": "Matt Kruse",
-  "version": "3.1",
+  "version": "3.2",
   "homepage_url": "https://EveryoneShouldHaveAVoice.com/",
   "icons": {
     "16": "icon-16.png",
@@ -13,7 +13,9 @@
     "128": "icon-128.png"
   },
   "permissions": [
-    "storage",
+    "storage"
+  ],
+  "host_permissions": [
     "https://meet.google.com/*",
     "https://EveryoneShouldHaveAVoice.com/*"
   ],
@@ -26,6 +28,10 @@
     }
   ],
   "web_accessible_resources": [
-    "resources/*.png"
+    {
+      "matches": ["https://meet.google.com/*"],
+      "resources": ["resources/*.png"],
+      "use_dynamic_url": true
+    }
   ]
 }
