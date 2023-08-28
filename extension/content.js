@@ -124,6 +124,7 @@ function createContainer() {
     <div class="talk-time-options-content">
       <h3>Options</h3>
       <p style="font-style:italic;">No options available at this time</p>
+      <p class="talk-time-export-csv">Export CSV</p>
       <button class="talk-time-options-close">Close</button>
     </div>
     <div class="talk-time-header">
@@ -151,6 +152,12 @@ function createContainer() {
     dom_container.classList.add('talk-time-options');
   });
   onclick('.talk-time-options-close',()=>{ dom_container.classList.remove("talk-time-options"); });
+  onclick('.talk-time-export-csv',()=>{ 
+    console.table(data);
+    const myJSON = JSON.stringify(data);
+    console.log(myJSON);
+    downloadBlob(myJSON, 'export.json', 'text/csv;charset=utf-8;');
+  });
 }
 
 // Create the group rendering table
@@ -546,3 +553,15 @@ chrome.storage.local.get(['options'],function(storage) {
 
   setInterval(attach,1000);
 });
+
+function downloadBlob(content, filename, contentType) {
+  // Create a blob
+  var blob = new Blob([content], { type: contentType });
+  var url = URL.createObjectURL(blob);
+
+  // Create a link to download it
+  var pom = document.createElement('a');
+  pom.href = url;
+  pom.setAttribute('download', filename);
+  pom.click();
+}
