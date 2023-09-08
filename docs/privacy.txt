@@ -1,0 +1,5 @@
+All of your information will remain strictly confidential and will not be used for advertising, analytics, tracking, or any other purpose.
+
+No personal or identifying information is ever transmitted or stored remotely. All data is stored locally on your computer, and never includes private information such as passwords. Typical data stored are extension configuration settings and options.
+
+No information about your browsing history or any other analytics information is ever gathered, stored, or transmitted.
